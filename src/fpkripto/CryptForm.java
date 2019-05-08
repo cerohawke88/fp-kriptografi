@@ -6,18 +6,37 @@
 package fpkripto;
 
 import javax.swing.JComboBox;
+import fpkripto.TripleDES;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import javax.swing.JOptionPane;
+
+
 
 /**
  *
  * @author VICKY
  */
 public class CryptForm extends javax.swing.JFrame {
+    
+    TripleDES tripleDES;
 
     /**
      * Creates new form CryptForm
      */
     public CryptForm() {
+        this.tripleDES = new TripleDES();
         initComponents();
+        
+        Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
+
+        int x = screen.width / 2  - this.getSize().width / 2;
+        int y = screen.height / 2 - this.getSize().height / 2;
+
+        this.setLocation(x, y);
+
     }
 
     /**
@@ -29,6 +48,8 @@ public class CryptForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        jPanel1 = new javax.swing.JPanel();
         encryptMode = new javax.swing.JComboBox<>();
         modeLabel = new javax.swing.JLabel();
         plainTextLabel = new javax.swing.JLabel();
@@ -39,6 +60,11 @@ public class CryptForm extends javax.swing.JFrame {
         panelTitle = new javax.swing.JLabel();
         keyText = new javax.swing.JTextField();
         keyLabel = new javax.swing.JLabel();
+        btnEncryptMode = new javax.swing.JRadioButton();
+        btnDecryptMode = new javax.swing.JRadioButton();
+        panelTitle1 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        aboutUs = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,7 +90,7 @@ public class CryptForm extends javax.swing.JFrame {
         cipherTextLabel.setLabelFor(cipherText);
         cipherTextLabel.setText("Ciphertext");
 
-        cipherText.setEnabled(false);
+        cipherText.setEditable(false);
         cipherText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cipherTextActionPerformed(evt);
@@ -78,9 +104,11 @@ public class CryptForm extends javax.swing.JFrame {
             }
         });
 
+        panelTitle.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
         panelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         panelTitle.setText("Final Project Kriptografi");
 
+        keyText.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         keyText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 keyTextActionPerformed(evt);
@@ -89,57 +117,133 @@ public class CryptForm extends javax.swing.JFrame {
 
         keyLabel.setText("Key");
 
+        btnEncryptMode.setText("Encrypt");
+        btnEncryptMode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEncryptModeActionPerformed(evt);
+            }
+        });
+
+        btnDecryptMode.setText("Decrypt");
+        btnDecryptMode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDecryptModeActionPerformed(evt);
+            }
+        });
+
+        panelTitle1.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
+        panelTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        panelTitle1.setText("Aplikasi Enkripsi - Dekripsi");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(modeLabel))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(97, 97, 97)
+                        .addComponent(btnEncryptMode)))
+                .addContainerGap(254, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(plainTextLabel)
+                                .addComponent(cipherTextLabel)
+                                .addComponent(keyLabel))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGap(121, 121, Short.MAX_VALUE)
+                                    .addComponent(btnDecryptMode)
+                                    .addGap(59, 59, 59))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(btnEncrypt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
+                                        .addComponent(cipherText, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
+                                        .addComponent(plainText, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
+                                        .addComponent(keyText, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)))))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addGap(0, 34, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(panelTitle1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(panelTitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(encryptMode, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addContainerGap()))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(69, 69, 69)
+                .addComponent(btnEncryptMode)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(modeLabel)
+                .addContainerGap(283, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(panelTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(panelTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(btnDecryptMode)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(39, 39, 39)
+                            .addComponent(keyLabel)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(encryptMode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(keyText, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(plainTextLabel)
+                        .addComponent(plainText, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(cipherText, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cipherTextLabel))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(btnEncrypt)
+                    .addContainerGap()))
+        );
+
+        panelTitle.getAccessibleContext().setAccessibleDescription("");
+
+        aboutUs.setText("Tentang Kami");
+        aboutUs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aboutUsActionPerformed(evt);
+            }
+        });
+        jMenuBar1.add(aboutUs);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(modeLabel)
-                    .addComponent(plainTextLabel)
-                    .addComponent(cipherTextLabel)
-                    .addComponent(keyLabel))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(keyText)
-                    .addComponent(btnEncrypt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(plainText)
-                    .addComponent(encryptMode, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cipherText, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
-                    .addComponent(panelTitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(118, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(encryptMode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(modeLabel))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(keyLabel))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(keyText, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(plainTextLabel)
-                    .addComponent(plainText, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cipherText, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cipherTextLabel))
-                .addGap(18, 18, 18)
-                .addComponent(btnEncrypt)
-                .addGap(28, 28, 28))
+                .addGap(19, 19, 19)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        panelTitle.getAccessibleContext().setAccessibleDescription("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -147,6 +251,25 @@ public class CryptForm extends javax.swing.JFrame {
     private void btnEncryptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncryptActionPerformed
         // TODO add your handling code here:
         // create an empty combo box with items of type String
+        
+        if (encryptMode.getSelectedItem() == "Triple DES") {
+            String key = keyText.getText().toString();
+            try {
+                String getKey = tripleDES.setKey(key);
+            } catch (Exception ex) {
+                Logger.getLogger(CryptForm.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            String plaintext = plainText.getText().toString();
+            String encrypt = tripleDES.encrypt(plaintext);
+
+            cipherText.setText(encrypt);
+        }
+        else {
+            
+        }
+        
+        
     }//GEN-LAST:event_btnEncryptActionPerformed
 
     private void cipherTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cipherTextActionPerformed
@@ -155,7 +278,7 @@ public class CryptForm extends javax.swing.JFrame {
 
     private void plainTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plainTextActionPerformed
         // TODO add your handling code here:
-        String plaintext = plainText.getText().toString();
+        
         
     }//GEN-LAST:event_plainTextActionPerformed
 
@@ -165,8 +288,23 @@ public class CryptForm extends javax.swing.JFrame {
 
     private void keyTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keyTextActionPerformed
         // TODO add your handling code here:
-        String key = keyText.getText().toString();
+        
     }//GEN-LAST:event_keyTextActionPerformed
+
+    private void btnEncryptModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncryptModeActionPerformed
+        // TODO add your handling code here:
+        btnEncryptMode.setSelected(true);
+    }//GEN-LAST:event_btnEncryptModeActionPerformed
+
+    private void btnDecryptModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDecryptModeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDecryptModeActionPerformed
+
+    private void aboutUsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutUsActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Ini Adalah Dialog Informasi"); 
+        
+    }//GEN-LAST:event_aboutUsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -205,14 +343,21 @@ public class CryptForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu aboutUs;
+    private javax.swing.JRadioButton btnDecryptMode;
     private javax.swing.JButton btnEncrypt;
+    private javax.swing.JRadioButton btnEncryptMode;
+    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JTextField cipherText;
     private javax.swing.JLabel cipherTextLabel;
     private javax.swing.JComboBox<String> encryptMode;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel keyLabel;
     private javax.swing.JTextField keyText;
     private javax.swing.JLabel modeLabel;
     private javax.swing.JLabel panelTitle;
+    private javax.swing.JLabel panelTitle1;
     private javax.swing.JTextField plainText;
     private javax.swing.JLabel plainTextLabel;
     // End of variables declaration//GEN-END:variables

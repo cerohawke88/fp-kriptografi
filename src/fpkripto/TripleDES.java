@@ -31,19 +31,21 @@ public class TripleDES {
     Scanner input = new Scanner(System.in);
     SecretKey key;
     
-    public TripleDES() throws Exception
+    public TripleDES()
     {
-        System.out.print("Key: ");
-        String keyText = input.nextLine();
-        //minumum 24byte or 24 character of key
-        myEncryptionKey = keyText;
+//        
+    }
+    
+    public String setKey(String keys) throws Exception {
+        myEncryptionKey = keys;
         myEncryptionScheme = DESEDE_ENCRYPTION_SCHEME;
         keyAsBytes = myEncryptionKey.getBytes(UNICODE_FORMAT);
         myKeySpec = new DESedeKeySpec(keyAsBytes);
         mySecretKeyFactory = SecretKeyFactory.getInstance(myEncryptionScheme);
         cipher = Cipher.getInstance(myEncryptionScheme);
         key = mySecretKeyFactory.generateSecret(myKeySpec);
-        System.out.println("key : " + key);
+        
+        return myEncryptionKey;
     }
  
     /**
@@ -62,6 +64,7 @@ public class TripleDES {
         }
         return encryptedString;
     }
+    
     /**
      * Method To Decrypt An Encrypted String
      */
