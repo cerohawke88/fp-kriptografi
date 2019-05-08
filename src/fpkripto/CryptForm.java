@@ -7,6 +7,7 @@ package fpkripto;
 
 import javax.swing.JComboBox;
 import fpkripto.TripleDES;
+import fpkripto.AES;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.awt.Dimension;
@@ -22,12 +23,14 @@ import javax.swing.JOptionPane;
 public class CryptForm extends javax.swing.JFrame {
     
     TripleDES tripleDES;
+    AES aes;
 
     /**
      * Creates new form CryptForm
      */
     public CryptForm() {
         this.tripleDES = new TripleDES();
+        this.aes = new AES();
         initComponents();
         
         Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
@@ -97,6 +100,7 @@ public class CryptForm extends javax.swing.JFrame {
             }
         });
 
+        btnEncrypt.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnEncrypt.setText("Encrypt");
         btnEncrypt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

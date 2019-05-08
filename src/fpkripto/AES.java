@@ -23,6 +23,11 @@ import javax.crypto.spec.PBEKeySpec;
 public class AES {
 	private static String secretKey = "boooooooooom!!!!";
         private static String salt = "ssshhhhhhhhhhh!!!!";
+        
+    public AES()
+    {
+//        
+    }
  
 public static String encrypt(String strToEncrypt, String secret)
 {
