@@ -65,52 +65,40 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="modeLabel" min="-2" max="-2" attributes="0"/>
-                      </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
                           <Component id="btnEncryptMode" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="modeLabel" min="-2" max="-2" attributes="0"/>
+                              <Component id="keyLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="plainTextLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="cipherTextLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="keyText" min="-2" pref="322" max="-2" attributes="0"/>
+                              <Component id="encryptMode" min="-2" pref="322" max="-2" attributes="0"/>
+                              <Component id="plainText" alignment="0" min="-2" pref="322" max="-2" attributes="0"/>
+                              <Component id="cipherText" alignment="0" min="-2" pref="322" max="-2" attributes="0"/>
+                              <Component id="btnEncrypt" alignment="0" min="-2" pref="322" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
-                  <EmptySpace pref="254" max="32767" attributes="0"/>
+                  <EmptySpace pref="14" max="32767" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace pref="44" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="plainTextLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cipherTextLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="keyLabel" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="121" pref="121" max="32767" attributes="0"/>
-                                      <Component id="btnDecryptMode" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace pref="21" max="32767" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="btnEncrypt" alignment="1" pref="322" max="32767" attributes="0"/>
-                                          <Component id="cipherText" alignment="1" pref="322" max="32767" attributes="0"/>
-                                          <Component id="plainText" alignment="1" pref="322" max="32767" attributes="0"/>
-                                          <Component id="keyText" alignment="1" pref="322" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                          </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="34" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="panelTitle1" alignment="1" min="-2" pref="360" max="-2" attributes="0"/>
-                                  <Component id="panelTitle" alignment="1" min="-2" pref="360" max="-2" attributes="0"/>
-                                  <Component id="encryptMode" alignment="1" min="-2" pref="322" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="btnDecryptMode" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="panelTitle1" alignment="1" min="-2" pref="360" max="-2" attributes="0"/>
+                          <Component id="panelTitle" alignment="1" min="-2" pref="360" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -123,8 +111,28 @@
                   <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                   <Component id="btnEncryptMode" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="modeLabel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="283" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="modeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="encryptMode" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="keyText" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
+                      <Component id="keyLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="plainText" min="-2" pref="71" max="-2" attributes="0"/>
+                      <Component id="plainTextLabel" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="cipherText" min="-2" pref="82" max="-2" attributes="0"/>
+                      <Component id="cipherTextLabel" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="12" max="32767" attributes="0"/>
+                  <Component id="btnEncrypt" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
@@ -134,32 +142,7 @@
                       <Component id="panelTitle1" min="-2" pref="25" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnDecryptMode" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                              <Component id="keyLabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="encryptMode" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="keyText" min="-2" pref="61" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="plainTextLabel" min="-2" max="-2" attributes="0"/>
-                          <Component id="plainText" min="-2" pref="71" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="cipherText" min="-2" pref="82" max="-2" attributes="0"/>
-                          <Component id="cipherTextLabel" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnEncrypt" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace pref="310" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
