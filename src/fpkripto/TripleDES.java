@@ -35,6 +35,7 @@ public class TripleDES {
     {
         System.out.print("Key: ");
         String keyText = input.nextLine();
+        //minumum 24byte or 24 character of key
         myEncryptionKey = keyText;
         myEncryptionScheme = DESEDE_ENCRYPTION_SCHEME;
         keyAsBytes = myEncryptionKey.getBytes(UNICODE_FORMAT);
@@ -42,6 +43,7 @@ public class TripleDES {
         mySecretKeyFactory = SecretKeyFactory.getInstance(myEncryptionScheme);
         cipher = Cipher.getInstance(myEncryptionScheme);
         key = mySecretKeyFactory.generateSecret(myKeySpec);
+        System.out.println("key : " + key);
     }
  
     /**
