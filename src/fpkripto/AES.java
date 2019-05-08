@@ -11,8 +11,10 @@ import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 import javax.crypto.spec.IvParameterSpec;
 import java.util.Base64;
+import java.util.Scanner;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
+
 
 
 /**
@@ -21,14 +23,25 @@ import javax.crypto.spec.PBEKeySpec;
  */
 
 public class AES {
-	private static String secretKey = "boooooooooom!!!!";
+	private static String secretKey;
         private static String salt = "ssshhhhhhhhhhh!!!!";
+        
+        public AES()
+        {
+            
+        }
+        
+        public static String setKey(String Key) throws Exception
+        {
+            secretKey = Key;
+            return secretKey;
+        }
  
-public static String encrypt(String strToEncrypt, String secret)
+public static String encrypt(String strToEncrypt)
 {
     try
     {
-        byte[] iv = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+        byte[] iv = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 };
         IvParameterSpec ivspec = new IvParameterSpec(iv);
          
         SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");
@@ -36,7 +49,7 @@ public static String encrypt(String strToEncrypt, String secret)
         SecretKey tmp = factory.generateSecret(spec);
         SecretKeySpec secretKey = new SecretKeySpec(tmp.getEncoded(), "AES");
          
-        Cipher cipher = Cipher.getInstance("AES/CTR/NoPadding");
+        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
         cipher.init(Cipher.ENCRYPT_MODE, secretKey, ivspec);
         return Base64.getEncoder().encodeToString(cipher.doFinal(strToEncrypt.getBytes("UTF-8")));
     }
@@ -47,10 +60,10 @@ public static String encrypt(String strToEncrypt, String secret)
     return null;
 }
 
-public static String decrypt(String strToDecrypt, String secret) {
+public static String decrypt(String strToDecrypt) {
     try
     {
-        byte[] iv = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+        byte[] iv = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 };
         IvParameterSpec ivspec = new IvParameterSpec(iv);
          
         SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");
@@ -58,7 +71,7 @@ public static String decrypt(String strToDecrypt, String secret) {
         SecretKey tmp = factory.generateSecret(spec);
         SecretKeySpec secretKey = new SecretKeySpec(tmp.getEncoded(), "AES");
          
-        Cipher cipher = Cipher.getInstance("AES/CTR/NoPADDING");
+        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
         cipher.init(Cipher.DECRYPT_MODE, secretKey, ivspec);
         return new String(cipher.doFinal(Base64.getDecoder().decode(strToDecrypt)));
     }
@@ -70,10 +83,14 @@ public static String decrypt(String strToDecrypt, String secret) {
 
 public static void main(String[] args)
 {
-    String originalString = "howtodoinjava.com";
+    AES EncryptDecrypt = new AES();
+    Scanner input = new Scanner(System.in);
+    System.out.print("String To Encrypt: ");
+    String originalString = input.nextLine();
+
      
-    String encryptedString = AES.encrypt(originalString, secretKey) ;
-    String decryptedString = AES.decrypt(encryptedString, secretKey) ;
+    String encryptedString = AES.encrypt(originalString) ;
+    String decryptedString = AES.decrypt(encryptedString) ;
       
     System.out.println(originalString);
     System.out.println(encryptedString);

@@ -11,6 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.security.Key;
 import javax.swing.JOptionPane;
 
 
@@ -255,7 +256,17 @@ public class CryptForm extends javax.swing.JFrame {
             cipherText.setText(encrypt);
         }
         else {
-            
+            String key = keyText.getText().toString();
+            try {
+                String getKey = AES.setKey(key);
+            } catch (Exception ex) {
+                Logger.getLogger(CryptForm.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            String plaintext = plainText.getText().toString();
+            String encrypt = AES.encrypt(plaintext);
+
+            cipherText.setText(encrypt);
         }
         
         
