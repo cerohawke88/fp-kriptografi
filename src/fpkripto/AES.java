@@ -36,6 +36,7 @@ public class AES {
             secretKey = Key;
             return secretKey;
         }
+
  
 public static String encrypt(String strToEncrypt)
 {
