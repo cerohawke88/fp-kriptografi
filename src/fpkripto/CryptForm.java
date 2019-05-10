@@ -253,11 +253,7 @@ public class CryptForm extends javax.swing.JFrame {
         }
         else {
             String key = keyText.getText().toString();
-            try {
-                String getKey = AES.setKey(key);
-            } catch (Exception ex) {
-                Logger.getLogger(CryptForm.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            String getKey = AES.setKey(key);
 
             String plaintext = plainText.getText().toString();
             String encrypt = AES.encrypt(plaintext);

@@ -13,6 +13,7 @@ import javax.crypto.spec.DESedeKeySpec;
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 import java.util.Scanner;
+import javax.crypto.spec.IvParameterSpec;
 
 /**
  *
@@ -54,7 +55,12 @@ public class TripleDES {
     public String encrypt(String unencryptedString) {
         String encryptedString = null;
         try {
-            cipher.init(Cipher.ENCRYPT_MODE, key);
+            byte[] iv = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 };
+            IvParameterSpec ivspec = new IvParameterSpec(iv);
+            
+            Cipher cipher = Cipher.getInstance("DES/CTR/PKCS5Padding");
+            cipher.init(Cipher.ENCRYPT_MODE, key, ivspec);
+            
             byte[] plainText = unencryptedString.getBytes(UNICODE_FORMAT);
             byte[] encryptedText = cipher.doFinal(plainText);
             BASE64Encoder base64encoder = new BASE64Encoder();
@@ -71,7 +77,12 @@ public class TripleDES {
     public String decrypt(String encryptedString) {
         String decryptedText=null;
         try {
-            cipher.init(Cipher.DECRYPT_MODE, key);
+            byte[] iv = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 };
+            IvParameterSpec ivspec = new IvParameterSpec(iv);
+            
+            Cipher cipher = Cipher.getInstance("DES/CTR/PKCS5Padding");
+            cipher.init(Cipher.DECRYPT_MODE, key, ivspec);
+        
             BASE64Decoder base64decoder = new BASE64Decoder();
             byte[] encryptedText = base64decoder.decodeBuffer(encryptedString);
             byte[] plainText = cipher.doFinal(encryptedText);

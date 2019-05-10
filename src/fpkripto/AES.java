@@ -31,7 +31,7 @@ public class AES {
             
         }
         
-        public static String setKey(String Key) throws Exception
+        public static String setKey(String Key)
         {
             secretKey = Key;
             return secretKey;
@@ -50,7 +50,7 @@ public static String encrypt(String strToEncrypt)
         SecretKey tmp = factory.generateSecret(spec);
         SecretKeySpec secretKey = new SecretKeySpec(tmp.getEncoded(), "AES");
          
-        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+        Cipher cipher = Cipher.getInstance("AES/CTR/PKCS5Padding");
         cipher.init(Cipher.ENCRYPT_MODE, secretKey, ivspec);
         return Base64.getEncoder().encodeToString(cipher.doFinal(strToEncrypt.getBytes("UTF-8")));
     }
@@ -72,7 +72,7 @@ public static String decrypt(String strToDecrypt) {
         SecretKey tmp = factory.generateSecret(spec);
         SecretKeySpec secretKey = new SecretKeySpec(tmp.getEncoded(), "AES");
          
-        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+        Cipher cipher = Cipher.getInstance("AES/CTR/PKCS5Padding");
         cipher.init(Cipher.DECRYPT_MODE, secretKey, ivspec);
         return new String(cipher.doFinal(Base64.getDecoder().decode(strToDecrypt)));
     }
