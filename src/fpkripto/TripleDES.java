@@ -115,7 +115,11 @@ public class TripleDES {
         System.out.print("String To Encrypt: ");
         String encrypt = input.nextLine();
         String stringToEncrypt=(encrypt);
-        String encrypted=myEncryptor.encrypt(stringToEncrypt);
+        
+        String encrypt1 =myEncryptor.encrypt(stringToEncrypt);
+        String decrypt1 =myEncryptor.decrypt(encrypt1);
+        String encrypted =myEncryptor.encrypt(decrypt1);
+        
         
         String decrypted=myEncryptor.decrypt(encrypted);
 
