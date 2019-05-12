@@ -261,29 +261,41 @@ public class DecryptForm extends javax.swing.JFrame {
     private void btnDecryptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDecryptActionPerformed
         // TODO add your handling code here:
         // create an empty combo box with items of type String
-
-        if (decryptMode.getSelectedItem() == "Triple DES") {
-            String key = keyText.getText().toString();
-            try {
-                String getKey = tripleDES.setKey(key);
-            } catch (Exception ex) {
-                Logger.getLogger(EncryptForm.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-            String ciphertext = cipherText.getText().toString();
-            String decrypt = tripleDES.decrypt(ciphertext);
-
-            plainText.setText(decrypt);
+        
+        if (keyText.getText().isEmpty() || cipherText.getText().isEmpty() ) {
+            JOptionPane.showMessageDialog(this, "Field tidak boleh kosong", "Error", JOptionPane.ERROR_MESSAGE);
         }
         else {
-            String key = keyText.getText().toString();
-            String getKey = AES.setKey(key);
+            if (decryptMode.getSelectedItem() == "Triple DES") {
+                if (keyText.getText().length() < 24) {
+                    JOptionPane.showMessageDialog(this, "Key minimal 24 karakter", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+                else {
+                    String key = keyText.getText().toString();
+                    try {
+                        String getKey = tripleDES.setKey(key);
+                    } catch (Exception ex) {
+                        Logger.getLogger(EncryptForm.class.getName()).log(Level.SEVERE, null, ex);
+                        JOptionPane.showMessageDialog(this, ex, "Error", JOptionPane.ERROR_MESSAGE);
+                    }
 
-            String ciphertext = cipherText.getText().toString();
-            String decrypt = AES.decrypt(ciphertext);
+                    String ciphertext = cipherText.getText().toString();
+                    String decrypt = tripleDES.decrypt(ciphertext);
 
-            plainText.setText(decrypt);
+                    plainText.setText(decrypt);
+                }
+            }
+            else {
+                String key = keyText.getText().toString();
+                String getKey = AES.setKey(key);
+
+                String ciphertext = cipherText.getText().toString();
+                String decrypt = AES.decrypt(ciphertext);
+
+                plainText.setText(decrypt);
+            }
         }
+
 
     }//GEN-LAST:event_btnDecryptActionPerformed
 

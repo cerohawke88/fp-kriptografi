@@ -177,7 +177,7 @@ public class EncryptForm extends javax.swing.JFrame {
                             .addComponent(plainText, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cipherText, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnEncrypt, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         EncryptPanelLayout.setVerticalGroup(
             EncryptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,7 +206,7 @@ public class EncryptForm extends javax.swing.JFrame {
                 .addGroup(EncryptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cipherText, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cipherTextLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnEncrypt)
                 .addContainerGap())
         );
@@ -265,28 +265,41 @@ public class EncryptForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         // create an empty combo box with items of type String
         
-        if (encryptMode.getSelectedItem() == "Triple DES") {
-            String key = keyText.getText().toString();
-            try {
-                String getKey = tripleDES.setKey(key);
-            } catch (Exception ex) {
-                Logger.getLogger(EncryptForm.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-            String plaintext = plainText.getText().toString();
-            String encrypt = tripleDES.encrypt(plaintext);
-
-            cipherText.setText(encrypt);
+        if (keyText.getText().isEmpty() || plainText.getText().isEmpty() ) {
+            JOptionPane.showMessageDialog(this, "Field tidak boleh kosong", "Error", JOptionPane.ERROR_MESSAGE);
         }
         else {
-            String key = keyText.getText().toString();
-            String getKey = AES.setKey(key);
+            if (encryptMode.getSelectedItem() == "Triple DES") {
+                if (keyText.getText().length() < 24) {
+                    JOptionPane.showMessageDialog(this, "Key minimal 24 karakter", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+                else {
+                    String key = keyText.getText().toString();
+                    try {
+                        String getKey = tripleDES.setKey(key);
+                    } catch (Exception ex) {
+                        Logger.getLogger(EncryptForm.class.getName()).log(Level.SEVERE, null, ex);
+                        JOptionPane.showMessageDialog(this, ex, "Error", JOptionPane.ERROR_MESSAGE);
+                    }
 
-            String plaintext = plainText.getText().toString();
-            String encrypt = AES.encrypt(plaintext);
 
-            cipherText.setText(encrypt);
+                    String plaintext = plainText.getText().toString();
+                    String encrypt = tripleDES.encrypt(plaintext);
+
+                    cipherText.setText(encrypt);
+                }
+            }
+            else {
+                String key = keyText.getText().toString();
+                String getKey = AES.setKey(key);
+
+                String plaintext = plainText.getText().toString();
+                String encrypt = AES.encrypt(plaintext);
+
+                cipherText.setText(encrypt);
+            }
         }
+        
         
         
     }//GEN-LAST:event_btnEncryptActionPerformed
