@@ -64,17 +64,20 @@ public class EncryptForm extends javax.swing.JFrame {
         EncryptPanel = new javax.swing.JPanel();
         encryptMode = new javax.swing.JComboBox<>();
         modeLabel = new javax.swing.JLabel();
-        plainTextLabel = new javax.swing.JLabel();
-        plainText = new javax.swing.JTextField();
-        cipherTextLabel = new javax.swing.JLabel();
-        cipherText = new javax.swing.JTextField();
-        btnEncrypt = new javax.swing.JButton();
         panelTitle = new javax.swing.JLabel();
-        keyText = new javax.swing.JTextField();
-        keyLabel = new javax.swing.JLabel();
         btnEncryptMode = new javax.swing.JRadioButton();
         btnDecryptMode = new javax.swing.JRadioButton();
         panelTitle1 = new javax.swing.JLabel();
+        keyLabel = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        keyText = new javax.swing.JTextArea();
+        cipherTextLabel = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        plainText = new javax.swing.JTextArea();
+        plainTextLabel = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        cipherText = new javax.swing.JTextArea();
+        btnEncrypt = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         aboutUs = new javax.swing.JMenu();
 
@@ -90,46 +93,9 @@ public class EncryptForm extends javax.swing.JFrame {
         modeLabel.setLabelFor(encryptMode);
         modeLabel.setText("Select Mode");
 
-        plainTextLabel.setLabelFor(plainText);
-        plainTextLabel.setText("Plaintext");
-
-        plainText.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        plainText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                plainTextActionPerformed(evt);
-            }
-        });
-
-        cipherTextLabel.setLabelFor(cipherText);
-        cipherTextLabel.setText("Ciphertext");
-
-        cipherText.setEditable(false);
-        cipherText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cipherTextActionPerformed(evt);
-            }
-        });
-
-        btnEncrypt.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnEncrypt.setText("Encrypt");
-        btnEncrypt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEncryptActionPerformed(evt);
-            }
-        });
-
         panelTitle.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
         panelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         panelTitle.setText("Final Project Kriptografi");
-
-        keyText.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        keyText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                keyTextActionPerformed(evt);
-            }
-        });
-
-        keyLabel.setText("Key");
 
         btnEncryptMode.setText("Encrypt");
         btnEncryptMode.addActionListener(new java.awt.event.ActionListener() {
@@ -149,6 +115,33 @@ public class EncryptForm extends javax.swing.JFrame {
         panelTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         panelTitle1.setText("Aplikasi Enkripsi - Dekripsi");
 
+        keyLabel.setText("Key");
+
+        keyText.setColumns(20);
+        keyText.setRows(5);
+        jScrollPane1.setViewportView(keyText);
+
+        cipherTextLabel.setText("Plaintext");
+
+        plainText.setColumns(20);
+        plainText.setRows(5);
+        jScrollPane2.setViewportView(plainText);
+
+        plainTextLabel.setText("Ciphertext");
+
+        cipherText.setEditable(false);
+        cipherText.setColumns(20);
+        cipherText.setRows(5);
+        jScrollPane3.setViewportView(cipherText);
+
+        btnEncrypt.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnEncrypt.setText("Encrypt");
+        btnEncrypt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEncryptActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout EncryptPanelLayout = new javax.swing.GroupLayout(EncryptPanel);
         EncryptPanel.setLayout(EncryptPanelLayout);
         EncryptPanelLayout.setHorizontalGroup(
@@ -158,26 +151,31 @@ public class EncryptForm extends javax.swing.JFrame {
                 .addComponent(btnEncryptMode)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnDecryptMode)
-                .addGap(73, 73, 73))
+                .addGap(69, 69, 69))
             .addGroup(EncryptPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(EncryptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(panelTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(panelTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(EncryptPanelLayout.createSequentialGroup()
                         .addGroup(EncryptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(modeLabel)
                             .addComponent(keyLabel)
-                            .addComponent(plainTextLabel)
-                            .addComponent(cipherTextLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(cipherTextLabel)
+                            .addComponent(plainTextLabel))
+                        .addGap(18, 18, 18)
                         .addGroup(EncryptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(keyText, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(encryptMode, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(plainText, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cipherText, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnEncrypt, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btnEncrypt, javax.swing.GroupLayout.DEFAULT_SIZE, 323, Short.MAX_VALUE)
+                            .addGroup(EncryptPanelLayout.createSequentialGroup()
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jScrollPane2)
+                            .addComponent(jScrollPane1)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, EncryptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(panelTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(panelTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(EncryptPanelLayout.createSequentialGroup()
+                            .addComponent(modeLabel)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(encryptMode, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap())
         );
         EncryptPanelLayout.setVerticalGroup(
             EncryptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,19 +194,19 @@ public class EncryptForm extends javax.swing.JFrame {
                     .addComponent(encryptMode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(EncryptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(keyText, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(keyLabel))
+                    .addComponent(keyLabel)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(EncryptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(plainText, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(plainTextLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(cipherTextLabel)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(EncryptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cipherText, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cipherTextLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(plainTextLabel)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnEncrypt)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panelTitle.getAccessibleContext().setAccessibleDescription("");
@@ -248,7 +246,7 @@ public class EncryptForm extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(EncryptPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -261,67 +259,9 @@ public class EncryptForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnEncryptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncryptActionPerformed
-        // TODO add your handling code here:
-        // create an empty combo box with items of type String
-        
-        if (keyText.getText().isEmpty() || plainText.getText().isEmpty() ) {
-            JOptionPane.showMessageDialog(this, "Field tidak boleh kosong", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        else {
-            if (encryptMode.getSelectedItem() == "Triple DES") {
-                if (keyText.getText().length() < 24) {
-                    JOptionPane.showMessageDialog(this, "Key minimal 24 karakter", "Error", JOptionPane.ERROR_MESSAGE);
-                }
-                else {
-                    String key = keyText.getText().toString();
-                    try {
-                        String getKey = tripleDES.setKey(key);
-                    } catch (Exception ex) {
-                        Logger.getLogger(EncryptForm.class.getName()).log(Level.SEVERE, null, ex);
-                        JOptionPane.showMessageDialog(this, ex, "Error", JOptionPane.ERROR_MESSAGE);
-                    }
-
-
-                    String plaintext = plainText.getText().toString();
-                    String encrypt = tripleDES.encrypt(plaintext);
-
-                    cipherText.setText(encrypt);
-                }
-            }
-            else {
-                String key = keyText.getText().toString();
-                String getKey = AES.setKey(key);
-
-                String plaintext = plainText.getText().toString();
-                String encrypt = AES.encrypt(plaintext);
-
-                cipherText.setText(encrypt);
-            }
-        }
-        
-        
-        
-    }//GEN-LAST:event_btnEncryptActionPerformed
-
-    private void cipherTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cipherTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cipherTextActionPerformed
-
-    private void plainTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plainTextActionPerformed
-        // TODO add your handling code here:
-        
-        
-    }//GEN-LAST:event_plainTextActionPerformed
-
     private void encryptModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_encryptModeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_encryptModeActionPerformed
-
-    private void keyTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keyTextActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_keyTextActionPerformed
 
     private void aboutUsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutUsActionPerformed
         // TODO add your handling code here:
@@ -358,6 +298,50 @@ public class EncryptForm extends javax.swing.JFrame {
     private void aboutUsMenuKeyPressed(javax.swing.event.MenuKeyEvent evt) {//GEN-FIRST:event_aboutUsMenuKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_aboutUsMenuKeyPressed
+
+    private void btnEncryptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncryptActionPerformed
+        // TODO add your handling code here:
+        // create an empty combo box with items of type String
+
+        if (keyText.getText().isEmpty() || plainText.getText().isEmpty() ) {
+            JOptionPane.showMessageDialog(this, "Field tidak boleh kosong", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        else {
+            if (encryptMode.getSelectedItem() == "Triple DES") {
+                if (keyText.getText().length() < 24) {
+                    JOptionPane.showMessageDialog(this, "Key minimal 24 karakter", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+                else {
+                    String key = keyText.getText().toString();
+                    try {
+                        String getKey = tripleDES.setKey(key);
+                    } catch (Exception ex) {
+                        Logger.getLogger(EncryptForm.class.getName()).log(Level.SEVERE, null, ex);
+                        JOptionPane.showMessageDialog(this, ex, "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+
+                    String ciphertext = plainText.getText().toString();
+                    String encrypt = tripleDES.encrypt(ciphertext);
+
+                    cipherText.setText(encrypt);
+                }
+            }
+            else {
+                String key = keyText.getText().toString();
+                try {
+                    String getKey = AES.setKey(key);
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(this, ex, "Error", JOptionPane.ERROR_MESSAGE);
+                }
+
+                String ciphertext = plainText.getText().toString();
+                String encrypt = AES.encrypt(ciphertext);
+
+                cipherText.setText(encrypt);
+            }
+        }
+
+    }//GEN-LAST:event_btnEncryptActionPerformed
 
     /**
      * @param args the command line arguments
@@ -408,16 +392,19 @@ public class EncryptForm extends javax.swing.JFrame {
     private javax.swing.JRadioButton btnDecryptMode;
     private javax.swing.JButton btnEncrypt;
     private javax.swing.JRadioButton btnEncryptMode;
-    private javax.swing.JTextField cipherText;
+    private javax.swing.JTextArea cipherText;
     private javax.swing.JLabel cipherTextLabel;
     private javax.swing.JComboBox<String> encryptMode;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel keyLabel;
-    private javax.swing.JTextField keyText;
+    private javax.swing.JTextArea keyText;
     private javax.swing.JLabel modeLabel;
     private javax.swing.JLabel panelTitle;
     private javax.swing.JLabel panelTitle1;
-    private javax.swing.JTextField plainText;
+    private javax.swing.JTextArea plainText;
     private javax.swing.JLabel plainTextLabel;
     // End of variables declaration//GEN-END:variables
 }

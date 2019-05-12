@@ -49,9 +49,9 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-              <Component id="DecryptPanel" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
+              <Component id="DecryptPanel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -82,12 +82,12 @@
                               <Component id="plainTextLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="keyText" alignment="0" min="-2" pref="322" max="-2" attributes="0"/>
-                              <Component id="decryptMode" alignment="0" min="-2" pref="322" max="-2" attributes="0"/>
-                              <Component id="cipherText" alignment="0" min="-2" pref="322" max="-2" attributes="0"/>
-                              <Component id="plainText" alignment="0" min="-2" pref="322" max="-2" attributes="0"/>
-                              <Component id="btnDecrypt" alignment="0" min="-2" pref="322" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="decryptMode" alignment="0" pref="322" max="32767" attributes="0"/>
+                              <Component id="btnDecrypt" alignment="0" pref="322" max="32767" attributes="0"/>
+                              <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jScrollPane3" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jScrollPane1" alignment="1" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -114,22 +114,22 @@
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="keyText" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
-                      <Component id="keyLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="keyLabel" min="-2" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="cipherText" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
-                      <Component id="cipherTextLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="cipherTextLabel" min="-2" max="-2" attributes="0"/>
+                      <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="plainText" alignment="0" min="-2" pref="82" max="-2" attributes="0"/>
-                      <Component id="plainTextLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="plainTextLabel" min="-2" max="-2" attributes="0"/>
+                      <Component id="jScrollPane3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="12" max="32767" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="btnDecrypt" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -161,23 +161,10 @@
             <Property name="text" type="java.lang.String" value="Ciphertext"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="cipherText">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cipherTextActionPerformed"/>
-          </Events>
-        </Component>
         <Component class="javax.swing.JLabel" name="plainTextLabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="Plaintext"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="plainText">
-          <Properties>
-            <Property name="editable" type="boolean" value="false"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="plainTextActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnDecrypt">
           <Properties>
@@ -198,14 +185,6 @@
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="Final Project Kriptografi"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="keyText">
-          <Properties>
-            <Property name="horizontalAlignment" type="int" value="2"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="keyTextActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="keyLabel">
           <Properties>
@@ -237,6 +216,52 @@
             <Property name="text" type="java.lang.String" value="Aplikasi Enkripsi - Dekripsi"/>
           </Properties>
         </Component>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTextArea" name="keyText">
+              <Properties>
+                <Property name="columns" type="int" value="20"/>
+                <Property name="rows" type="int" value="5"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTextArea" name="cipherText">
+              <Properties>
+                <Property name="columns" type="int" value="20"/>
+                <Property name="rows" type="int" value="5"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane3">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTextArea" name="plainText">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+                <Property name="columns" type="int" value="20"/>
+                <Property name="rows" type="int" value="5"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
       </SubComponents>
     </Container>
   </SubComponents>

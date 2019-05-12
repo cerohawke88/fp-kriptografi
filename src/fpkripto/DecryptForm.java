@@ -58,16 +58,19 @@ public class DecryptForm extends javax.swing.JFrame {
         decryptMode = new javax.swing.JComboBox<>();
         modeLabel = new javax.swing.JLabel();
         cipherTextLabel = new javax.swing.JLabel();
-        cipherText = new javax.swing.JTextField();
         plainTextLabel = new javax.swing.JLabel();
-        plainText = new javax.swing.JTextField();
         btnDecrypt = new javax.swing.JButton();
         panelTitle = new javax.swing.JLabel();
-        keyText = new javax.swing.JTextField();
         keyLabel = new javax.swing.JLabel();
         btnEncryptMode = new javax.swing.JRadioButton();
         btnDecryptMode = new javax.swing.JRadioButton();
         panelTitle1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        keyText = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        cipherText = new javax.swing.JTextArea();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        plainText = new javax.swing.JTextArea();
         jMenuBar1 = new javax.swing.JMenuBar();
         aboutUs = new javax.swing.JMenu();
 
@@ -84,20 +87,7 @@ public class DecryptForm extends javax.swing.JFrame {
 
         cipherTextLabel.setText("Ciphertext");
 
-        cipherText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cipherTextActionPerformed(evt);
-            }
-        });
-
         plainTextLabel.setText("Plaintext");
-
-        plainText.setEditable(false);
-        plainText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                plainTextActionPerformed(evt);
-            }
-        });
 
         btnDecrypt.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnDecrypt.setText("Decrypt");
@@ -110,13 +100,6 @@ public class DecryptForm extends javax.swing.JFrame {
         panelTitle.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
         panelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         panelTitle.setText("Final Project Kriptografi");
-
-        keyText.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        keyText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                keyTextActionPerformed(evt);
-            }
-        });
 
         keyLabel.setText("Key");
 
@@ -137,6 +120,19 @@ public class DecryptForm extends javax.swing.JFrame {
         panelTitle1.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
         panelTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         panelTitle1.setText("Aplikasi Enkripsi - Dekripsi");
+
+        keyText.setColumns(20);
+        keyText.setRows(5);
+        jScrollPane1.setViewportView(keyText);
+
+        cipherText.setColumns(20);
+        cipherText.setRows(5);
+        jScrollPane2.setViewportView(cipherText);
+
+        plainText.setEditable(false);
+        plainText.setColumns(20);
+        plainText.setRows(5);
+        jScrollPane3.setViewportView(plainText);
 
         javax.swing.GroupLayout DecryptPanelLayout = new javax.swing.GroupLayout(DecryptPanel);
         DecryptPanel.setLayout(DecryptPanelLayout);
@@ -160,12 +156,12 @@ public class DecryptForm extends javax.swing.JFrame {
                             .addComponent(cipherTextLabel)
                             .addComponent(plainTextLabel))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(DecryptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(keyText, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(decryptMode, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cipherText, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(plainText, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnDecrypt, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(DecryptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(decryptMode, 0, 322, Short.MAX_VALUE)
+                            .addComponent(btnDecrypt, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
+                            .addComponent(jScrollPane2)
+                            .addComponent(jScrollPane3)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
         DecryptPanelLayout.setVerticalGroup(
@@ -185,19 +181,19 @@ public class DecryptForm extends javax.swing.JFrame {
                     .addComponent(decryptMode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(DecryptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(keyText, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(keyLabel))
+                    .addComponent(keyLabel)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(DecryptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cipherText, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cipherTextLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(cipherTextLabel)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(DecryptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(plainText, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(plainTextLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                    .addComponent(plainTextLabel)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnDecrypt)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         aboutUs.setText("Tentang Kami");
@@ -231,9 +227,9 @@ public class DecryptForm extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(DecryptPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -248,15 +244,6 @@ public class DecryptForm extends javax.swing.JFrame {
     private void decryptModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decryptModeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_decryptModeActionPerformed
-
-    private void cipherTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cipherTextActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_cipherTextActionPerformed
-
-    private void plainTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plainTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_plainTextActionPerformed
 
     private void btnDecryptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDecryptActionPerformed
         // TODO add your handling code here:
@@ -287,7 +274,11 @@ public class DecryptForm extends javax.swing.JFrame {
             }
             else {
                 String key = keyText.getText().toString();
-                String getKey = AES.setKey(key);
+                try {
+                    String getKey = AES.setKey(key);
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(this, ex, "Error", JOptionPane.ERROR_MESSAGE);
+                }
 
                 String ciphertext = cipherText.getText().toString();
                 String decrypt = AES.decrypt(ciphertext);
@@ -298,11 +289,6 @@ public class DecryptForm extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_btnDecryptActionPerformed
-
-    private void keyTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keyTextActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_keyTextActionPerformed
 
     private void groupButton() {
         ButtonGroup bg1 = new ButtonGroup();
@@ -370,16 +356,19 @@ public class DecryptForm extends javax.swing.JFrame {
     private javax.swing.JButton btnDecrypt;
     private javax.swing.JRadioButton btnDecryptMode;
     private javax.swing.JRadioButton btnEncryptMode;
-    private javax.swing.JTextField cipherText;
+    private javax.swing.JTextArea cipherText;
     private javax.swing.JLabel cipherTextLabel;
     private javax.swing.JComboBox<String> decryptMode;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel keyLabel;
-    private javax.swing.JTextField keyText;
+    private javax.swing.JTextArea keyText;
     private javax.swing.JLabel modeLabel;
     private javax.swing.JLabel panelTitle;
     private javax.swing.JLabel panelTitle1;
-    private javax.swing.JTextField plainText;
+    private javax.swing.JTextArea plainText;
     private javax.swing.JLabel plainTextLabel;
     // End of variables declaration//GEN-END:variables
 }
