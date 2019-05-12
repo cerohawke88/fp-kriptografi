@@ -321,7 +321,8 @@ public class EncryptForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_btnEncryptModeActionPerformed
-
+);
+    }                                              
     private void btnDecryptModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDecryptModeActionPerformed
         // TODO add your handling code here:
         this.dispose();
