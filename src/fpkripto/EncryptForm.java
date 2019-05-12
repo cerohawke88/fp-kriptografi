@@ -15,8 +15,13 @@ import java.awt.Toolkit;
 import java.security.Key;
 import javax.swing.JOptionPane;
 import javax.swing.ButtonGroup;
-
-
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
 /**
  *
  * @author VICKY
@@ -36,7 +41,6 @@ public class EncryptForm extends javax.swing.JFrame {
         dimension();
         groupButton();
         setTitle("Aplikasi Enkripsi - Dekripsi");
-
     }
     
     private void dimension() {
@@ -321,8 +325,8 @@ public class EncryptForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_btnEncryptModeActionPerformed
-);
-    }                                              
+
+                                                 
     private void btnDecryptModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDecryptModeActionPerformed
         // TODO add your handling code here:
         this.dispose();

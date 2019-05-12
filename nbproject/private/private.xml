@@ -3,11 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Documents/College%20Things/Semester%206/Kriptografi%20dan%20Keamanan%20Informasi/FPKripto/src/fpkripto/EncryptForm.java</file>
-            <file>file:/D:/Documents/College%20Things/Semester%206/Kriptografi%20dan%20Keamanan%20Informasi/FPKripto/src/fpkripto/TripleDES.java</file>
-            <file>file:/D:/Documents/College%20Things/Semester%206/Kriptografi%20dan%20Keamanan%20Informasi/FPKripto/src/fpkripto/DecryptForm.java</file>
-            <file>file:/D:/Documents/College%20Things/Semester%206/Kriptografi%20dan%20Keamanan%20Informasi/FPKripto/src/fpkripto/AES.java</file>
-            <file>file:/D:/Documents/College%20Things/Semester%206/Kriptografi%20dan%20Keamanan%20Informasi/FPKripto/src/fpkripto/BlumBlumShub.java</file>
+            <file>file:/D:/Documents/College%20Things/Semester%206/Kriptografi%20dan%20Keamanan%20Informasi/fp-kriptografi/src/fpkripto/BlumBlumShub.java</file>
+            <file>file:/D:/Documents/College%20Things/Semester%206/Kriptografi%20dan%20Keamanan%20Informasi/fp-kriptografi/src/fpkripto/EncryptForm.java</file>
+            <file>file:/D:/Documents/College%20Things/Semester%206/Kriptografi%20dan%20Keamanan%20Informasi/fp-kriptografi/src/fpkripto/DecryptForm.java</file>
+            <file>file:/D:/Documents/College%20Things/Semester%206/Kriptografi%20dan%20Keamanan%20Informasi/fp-kriptografi/src/fpkripto/TripleDES.java</file>
+            <file>file:/D:/Documents/College%20Things/Semester%206/Kriptografi%20dan%20Keamanan%20Informasi/fp-kriptografi/nbproject/project.properties</file>
+            <file>file:/D:/Documents/College%20Things/Semester%206/Kriptografi%20dan%20Keamanan%20Informasi/fp-kriptografi/src/fpkripto/AES.java</file>
         </group>
     </open-files>
 </project-private>
