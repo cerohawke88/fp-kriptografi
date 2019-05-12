@@ -93,6 +93,7 @@ public class EncryptForm extends javax.swing.JFrame {
         plainTextLabel.setLabelFor(plainText);
         plainTextLabel.setText("Plaintext");
 
+        plainText.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         plainText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 plainTextActionPerformed(evt);
