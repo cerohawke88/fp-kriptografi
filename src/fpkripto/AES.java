@@ -14,6 +14,8 @@ import java.util.Base64;
 import java.util.Scanner;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
+import fpkripto.BlumBlumShub;
+
 
 
 
@@ -36,6 +38,7 @@ public class AES {
             secretKey = Key;
             return secretKey;
         }
+        
 
  
 public static String encrypt(String strToEncrypt)
