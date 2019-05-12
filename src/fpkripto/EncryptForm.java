@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.security.Key;
+import java.util.Arrays;
 import javax.swing.JOptionPane;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -317,7 +318,10 @@ public class EncryptForm extends javax.swing.JFrame {
                         String getKey = tripleDES.setKey(key);
                     } catch (Exception ex) {
                         Logger.getLogger(EncryptForm.class.getName()).log(Level.SEVERE, null, ex);
-                        JOptionPane.showMessageDialog(this, ex, "Error", JOptionPane.ERROR_MESSAGE);
+                        String errorMessage = "Message: " + ex.getMessage()
+                                    + "\nStackTrace: " + Arrays.toString(ex.getStackTrace());
+                        String title = ex.getClass().getName();
+                        JOptionPane.showMessageDialog(this, errorMessage, title, JOptionPane.ERROR_MESSAGE);
                     }
 
                     String ciphertext = plainText.getText().toString();
@@ -331,7 +335,10 @@ public class EncryptForm extends javax.swing.JFrame {
                 try {
                     String getKey = AES.setKey(key);
                 } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(this, ex, "Error", JOptionPane.ERROR_MESSAGE);
+                    String errorMessage = "Message: " + ex.getMessage()
+                                + "\nStackTrace: " + Arrays.toString(ex.getStackTrace());
+                    String title = ex.getClass().getName();
+                    JOptionPane.showMessageDialog(this, errorMessage, title, JOptionPane.ERROR_MESSAGE);
                 }
 
                 String ciphertext = plainText.getText().toString();

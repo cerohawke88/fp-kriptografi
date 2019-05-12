@@ -77,7 +77,7 @@ public class TripleDES {
     public String decrypt(String encryptedString) {
         String decryptedText=null;
         try {
-            byte[] iv = { 1, 2, 3, 4, 5, 6, 7, 8 };
+            byte[] iv = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 };
             IvParameterSpec ivspec = new IvParameterSpec(iv);
             
             Cipher cipher = Cipher.getInstance("DES/CTR/PKCS5Padding");
