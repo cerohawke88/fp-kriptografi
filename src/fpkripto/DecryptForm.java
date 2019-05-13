@@ -77,6 +77,8 @@ public class DecryptForm extends javax.swing.JFrame {
         help = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(Toolkit.getDefaultToolkit().getImage(DecryptForm.class.getResource("icon.png")));
+        setResizable(false);
 
         decryptMode.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Triple DES", "AES" }));
         decryptMode.addActionListener(new java.awt.event.ActionListener() {
@@ -361,7 +363,7 @@ public class DecryptForm extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }

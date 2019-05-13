@@ -62,7 +62,6 @@ public class EncryptForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
         EncryptPanel = new javax.swing.JPanel();
         encryptMode = new javax.swing.JComboBox<>();
         modeLabel = new javax.swing.JLabel();
@@ -84,9 +83,9 @@ public class EncryptForm extends javax.swing.JFrame {
         aboutUs = new javax.swing.JMenu();
         help = new javax.swing.JMenu();
 
-        jTextField1.setText("jTextField1");
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(Toolkit.getDefaultToolkit().getImage(EncryptForm.class.getResource("icon.png")));
+        setResizable(false);
 
         encryptMode.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Triple DES", "AES" }));
         encryptMode.addActionListener(new java.awt.event.ActionListener() {
@@ -405,7 +404,7 @@ public class EncryptForm extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -451,7 +450,6 @@ public class EncryptForm extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel keyLabel;
     private javax.swing.JTextArea keyText;
     private javax.swing.JLabel modeLabel;
