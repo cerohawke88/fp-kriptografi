@@ -35,7 +35,7 @@ public class BlumBlumShub implements RandomGenerator {
      * @return A BigInteger, the <i>n</i>.
      */
      public static BigInteger generateN() {
-        BigInteger p =  new BigInteger("13231090003");
+        BigInteger p =  new BigInteger("132310900031");
         BigInteger q =  new BigInteger("18531056003791");
 
         return p.multiply(q);
