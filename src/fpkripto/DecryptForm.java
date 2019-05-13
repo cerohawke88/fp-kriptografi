@@ -74,6 +74,7 @@ public class DecryptForm extends javax.swing.JFrame {
         plainText = new javax.swing.JTextArea();
         jMenuBar1 = new javax.swing.JMenuBar();
         aboutUs = new javax.swing.JMenu();
+        help = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -197,7 +198,7 @@ public class DecryptForm extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        aboutUs.setText("Tentang Kami");
+        aboutUs.setText("About Us");
         aboutUs.addMenuListener(new javax.swing.event.MenuListener() {
             public void menuCanceled(javax.swing.event.MenuEvent evt) {
             }
@@ -213,6 +214,23 @@ public class DecryptForm extends javax.swing.JFrame {
             }
         });
         jMenuBar1.add(aboutUs);
+
+        help.setText("Help");
+        help.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                helpMenuSelected(evt);
+            }
+        });
+        help.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                helpActionPerformed(evt);
+            }
+        });
+        jMenuBar1.add(help);
 
         setJMenuBar(jMenuBar1);
 
@@ -322,6 +340,16 @@ public class DecryptForm extends javax.swing.JFrame {
                 ); 
     }//GEN-LAST:event_aboutUsMenuSelected
 
+    private void helpMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_helpMenuSelected
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this,"Masukkan key berupa string ataupun angka, minimal 24 karakter untuk TripleDES.\n" + 
+                "Jumlah karakter untuk plaintext tidak dibatasi, namun disarankan untuk tidak berlebihan dalam memasukkan plaintext.");
+    }//GEN-LAST:event_helpMenuSelected
+
+    private void helpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_helpActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -366,6 +394,7 @@ public class DecryptForm extends javax.swing.JFrame {
     private javax.swing.JTextArea cipherText;
     private javax.swing.JLabel cipherTextLabel;
     private javax.swing.JComboBox<String> decryptMode;
+    private javax.swing.JMenu help;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

@@ -6,11 +6,20 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="aboutUs">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Tentang Kami"/>
+            <Property name="text" type="java.lang.String" value="About Us"/>
           </Properties>
           <Events>
             <EventHandler event="menuSelected" listener="javax.swing.event.MenuListener" parameters="javax.swing.event.MenuEvent" handler="aboutUsMenuSelected"/>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="aboutUsActionPerformed"/>
+          </Events>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="help">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Help"/>
+          </Properties>
+          <Events>
+            <EventHandler event="menuSelected" listener="javax.swing.event.MenuListener" parameters="javax.swing.event.MenuEvent" handler="helpMenuSelected"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="helpActionPerformed"/>
           </Events>
         </Menu>
       </SubComponents>

@@ -62,6 +62,7 @@ public class EncryptForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jTextField1 = new javax.swing.JTextField();
         EncryptPanel = new javax.swing.JPanel();
         encryptMode = new javax.swing.JComboBox<>();
         modeLabel = new javax.swing.JLabel();
@@ -81,6 +82,9 @@ public class EncryptForm extends javax.swing.JFrame {
         btnEncrypt = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         aboutUs = new javax.swing.JMenu();
+        help = new javax.swing.JMenu();
+
+        jTextField1.setText("jTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -212,7 +216,7 @@ public class EncryptForm extends javax.swing.JFrame {
 
         panelTitle.getAccessibleContext().setAccessibleDescription("");
 
-        aboutUs.setText("Tentang Kami");
+        aboutUs.setText("About Us");
         aboutUs.addMenuKeyListener(new javax.swing.event.MenuKeyListener() {
             public void menuKeyPressed(javax.swing.event.MenuKeyEvent evt) {
                 aboutUsMenuKeyPressed(evt);
@@ -237,6 +241,32 @@ public class EncryptForm extends javax.swing.JFrame {
             }
         });
         jMenuBar1.add(aboutUs);
+
+        help.setText("Help");
+        help.addMenuKeyListener(new javax.swing.event.MenuKeyListener() {
+            public void menuKeyPressed(javax.swing.event.MenuKeyEvent evt) {
+                helpMenuKeyPressed(evt);
+            }
+            public void menuKeyReleased(javax.swing.event.MenuKeyEvent evt) {
+            }
+            public void menuKeyTyped(javax.swing.event.MenuKeyEvent evt) {
+            }
+        });
+        help.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                helpMenuSelected(evt);
+            }
+        });
+        help.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                helpActionPerformed(evt);
+            }
+        });
+        jMenuBar1.add(help);
 
         setJMenuBar(jMenuBar1);
 
@@ -350,6 +380,20 @@ public class EncryptForm extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnEncryptActionPerformed
 
+    private void helpMenuKeyPressed(javax.swing.event.MenuKeyEvent evt) {//GEN-FIRST:event_helpMenuKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_helpMenuKeyPressed
+
+    private void helpMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_helpMenuSelected
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this,"Masukkan key berupa string ataupun angka, minimal 24 karakter untuk TripleDES.\n" + 
+                "Jumlah karakter untuk plaintext tidak dibatasi, namun disarankan untuk tidak berlebihan dalam memasukkan plaintext.");
+    }//GEN-LAST:event_helpMenuSelected
+
+    private void helpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_helpActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -402,10 +446,12 @@ public class EncryptForm extends javax.swing.JFrame {
     private javax.swing.JTextArea cipherText;
     private javax.swing.JLabel cipherTextLabel;
     private javax.swing.JComboBox<String> encryptMode;
+    private javax.swing.JMenu help;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel keyLabel;
     private javax.swing.JTextArea keyText;
     private javax.swing.JLabel modeLabel;
