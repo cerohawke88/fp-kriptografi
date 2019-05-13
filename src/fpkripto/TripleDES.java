@@ -31,6 +31,7 @@ public class TripleDES {
     private String myEncryptionScheme;
     Scanner input = new Scanner(System.in);
     SecretKey key;
+    static byte[] IV = BlumBlumShub.setIV_DES();
     
     public TripleDES()
     {
@@ -55,10 +56,10 @@ public class TripleDES {
     public String encrypt(String unencryptedString) {
         String encryptedString = null;
         try {
-            byte[] iv = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 };
+            byte[] iv = IV;
             IvParameterSpec ivspec = new IvParameterSpec(iv);
             
-            Cipher cipher = Cipher.getInstance("DES/CTR/PKCS5Padding");
+            Cipher cipher = Cipher.getInstance("DESede/CTR/PKCS5Padding");
             cipher.init(Cipher.ENCRYPT_MODE, key, ivspec);
             
             byte[] plainText = unencryptedString.getBytes(UNICODE_FORMAT);
@@ -77,10 +78,10 @@ public class TripleDES {
     public String decrypt(String encryptedString) {
         String decryptedText=null;
         try {
-            byte[] iv = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 };
+            byte[] iv = IV;
             IvParameterSpec ivspec = new IvParameterSpec(iv);
             
-            Cipher cipher = Cipher.getInstance("DES/CTR/PKCS5Padding");
+            Cipher cipher = Cipher.getInstance("DESede/CTR/PKCS5Padding");
             cipher.init(Cipher.DECRYPT_MODE, key, ivspec);
         
             BASE64Decoder base64decoder = new BASE64Decoder();

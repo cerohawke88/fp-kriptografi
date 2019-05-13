@@ -27,6 +27,7 @@ import fpkripto.BlumBlumShub;
 public class AES {
 	private static String secretKey;
         private static String salt = "ssshhhhhhhhhhh!!!!";
+        static byte[] IV = BlumBlumShub.setIV();
         
         public AES()
         {
@@ -45,7 +46,7 @@ public static String encrypt(String strToEncrypt)
 {
     try
     {
-        byte[] iv = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 };
+        byte[] iv = IV;
         IvParameterSpec ivspec = new IvParameterSpec(iv);
          
         SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");
@@ -67,7 +68,7 @@ public static String encrypt(String strToEncrypt)
 public static String decrypt(String strToDecrypt) {
     try
     {
-        byte[] iv = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 };
+        byte[] iv = IV;
         IvParameterSpec ivspec = new IvParameterSpec(iv);
          
         SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");
