@@ -385,8 +385,12 @@ public class EncryptForm extends javax.swing.JFrame {
 
     private void helpMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_helpMenuSelected
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(this,"Masukkan key berupa string ataupun angka, minimal 24 karakter untuk TripleDES.\n" + 
-                "Jumlah karakter untuk plaintext tidak dibatasi, namun disarankan untuk tidak berlebihan dalam memasukkan plaintext.");
+        JOptionPane.showMessageDialog(this,"Pertama-tama, pilih aktivitas yang ingin dilakukan antara Enkripsi(Encrypt) atau Dekripsi(Decrypt).\n"+
+                "Kemudian pilih metode cipher yang ingin dipilih antara AES atau TripleDES. \n"+
+                "Untuk mode TripleDES, Masukkan key berupa gabungan string ataupun angka dengan minimal 24 karakter .\n" + 
+                "Untuk mode AES, Masukkan key berupa gabungan string ataupun angka, tidak ada batas minimal atau maksimal .\n" +
+                "Untuk aktivitas Encrypt lengkapi Plaintext dan Key. Untuk aktivitas Decrypt lengkapi Ciphertext dan Key. \n"+
+                "Jumlah karakter plaintext atau ciphertext untuk kedua metode tidak memiliki batas atas, namun disarankan untuk tidak berlebihan dalam memasukkan plaintext atau ciphertext.\n");
     }//GEN-LAST:event_helpMenuSelected
 
     private void helpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpActionPerformed
