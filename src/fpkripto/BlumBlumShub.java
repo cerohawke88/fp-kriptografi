@@ -7,6 +7,7 @@ package fpkripto;
 import java.util.Random;
 import java.security.SecureRandom;
 import java.math.BigInteger;
+import java.util.Arrays;
 
 public class BlumBlumShub implements RandomGenerator {
 
@@ -20,7 +21,7 @@ public class BlumBlumShub implements RandomGenerator {
     /**
      * main parameter
      */
-    private BigInteger n;
+    static BigInteger n;
 
     private BigInteger state;
     
@@ -116,12 +117,14 @@ public class BlumBlumShub implements RandomGenerator {
 	// Use this seed to generate a n-value for Blum-Blum-Shub
 	// This value can be re-used if desired.
 	System.out.println("Generating N");
-        int bitsize = 512;
+        int bitsize = 64;
 	BigInteger nval = BlumBlumShub.generateN();
 
 	// now get a seed
 	byte[] seed = new byte[bitsize/8];
 	r.nextBytes(seed);
+        System.out.println("8 bytes of seed : \n");
+        System.out.println(Arrays.toString(seed));
 
 	// now create an instance of BlumBlumShub
 	BlumBlumShub bbs = new BlumBlumShub(nval, seed);
@@ -146,8 +149,8 @@ public class BlumBlumShub implements RandomGenerator {
 
 	// Use this seed to generate a n-value for Blum-Blum-Shub
 	// This value can be re-used if desired.
-	System.out.println("Generating N");
-        int bitsize = 512;
+	//System.out.println("Generating N");
+        int bitsize = 64;
 	BigInteger nval = BlumBlumShub.generateN();
 
 	// now get a seed
@@ -168,11 +171,15 @@ public class BlumBlumShub implements RandomGenerator {
     }
 
     
-
-      
-    
-
     /**
      * A quickie test application for BlumBlumShub.
      */
+        
+        public static void main(String[] args) {
+               
+	BlumBlumShub.setIV();
+        System.out.println("Nilai p*q : ");
+        System.out.println(n);
+
+    }
 }
