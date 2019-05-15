@@ -43,12 +43,8 @@ public class BlumBlumShub implements RandomGenerator {
 
         return p.multiply(q);
     }
-     
-    public BlumBlumShub(int bits) {
-        this(bits, new Random());
-    }
     
-     public BlumBlumShub(int bits, Random rand) {
+     public BlumBlumShub() {
         this(generateN());
     }
 
