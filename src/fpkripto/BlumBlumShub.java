@@ -80,8 +80,7 @@ public class BlumBlumShub implements RandomGenerator {
      *            The new seed.
      */
     public void setSeed(byte[] seedBytes) {
-	// ADD: use hardwired default for n
-	BigInteger seed = new BigInteger(1, seedBytes);
+	BigInteger seed = new BigInteger("123457");
         state = seed.mod(n);
     }
 
@@ -91,8 +90,6 @@ public class BlumBlumShub implements RandomGenerator {
      * @return int
      */
     public int next(int numBits) {
-	// TODO: find out how many LSB one can extract per cycle.
-	//   it is more than one.
 	int result = 0;
 	for (int i = numBits; i != 0; --i) {
 	    state = state.modPow(two, n);
@@ -103,25 +100,15 @@ public class BlumBlumShub implements RandomGenerator {
     
     public static byte[] setIV() 
     {
-        // First use the internal, stock "true" random number
-	// generator to get a "true random seed"
-	SecureRandom r = new SecureRandom();
-	System.out.println("Generating stock random seed");
-	r.nextInt(); // need to do something for SR to be triggered.
 
-	// Use this seed to generate a n-value for Blum-Blum-Shub
-	// This value can be re-used if desired.
-	System.out.println("Generating N");
         int bitsize = 64;
 	BigInteger nval = BlumBlumShub.generateN();
 
-	// now get a seed
+	// get a seed
 	byte[] seed = new byte[bitsize/8];
-	r.nextBytes(seed);
-        System.out.println("8 bytes of seed : \n");
-        System.out.println(Arrays.toString(seed));
 
-	// now create an instance of BlumBlumShub
+
+	// create an instance of BlumBlumShub
 	BlumBlumShub bbs = new BlumBlumShub(nval, seed);
         
         byte [] ivValue = new byte [16];
@@ -136,23 +123,14 @@ public class BlumBlumShub implements RandomGenerator {
     
         public static byte[] setIV_DES() 
     {
-        // First use the internal, stock "true" random number
-	// generator to get a "true random seed"
-	SecureRandom r = new SecureRandom();
-	System.out.println("Generating stock random seed");
-	r.nextInt(); // need to do something for SR to be triggered.
 
-	// Use this seed to generate a n-value for Blum-Blum-Shub
-	// This value can be re-used if desired.
-	//System.out.println("Generating N");
         int bitsize = 64;
 	BigInteger nval = BlumBlumShub.generateN();
 
-	// now get a seed
+	// get a seed
 	byte[] seed = new byte[bitsize/8];
-	r.nextBytes(seed);
 
-	// now create an instance of BlumBlumShub
+	// create an instance of BlumBlumShub
 	BlumBlumShub bbs = new BlumBlumShub(nval, seed);
         
         byte [] ivValue = new byte [8];
