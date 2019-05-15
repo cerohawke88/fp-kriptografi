@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package fpkripto;
-import java.util.Random;
 import java.security.SecureRandom;
 import java.math.BigInteger;
 import java.util.Arrays;
